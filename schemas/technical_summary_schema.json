@@ -1,0 +1,130 @@
+{
+  "source": "uploaded_market_data",
+  "ticker": "",
+  "company": "",
+  "date": "",
+  "signal": "",
+  "classification": {
+    "investability": "",
+    "speculative": null,
+    "overextended": "",
+    "under_accumulation": null,
+    "avoidable": null
+  },
+  "verdict": {
+    "label": "",
+    "conviction": null,
+    "summary": "",
+    "action": ""
+  },
+  "latest": {
+    "open": null,
+    "high": null,
+    "low": null,
+    "close": null,
+    "price": null,
+    "volume": null,
+    "avg_20d_volume": null,
+    "rvol": null,
+    "daily_return": null,
+    "rsi_14d": null,
+    "volatility_60d": null,
+    "volatility_252d": null,
+    "atr_pct_proxy": null,
+    "new_20d_high": null,
+    "new_52w_high": null
+  },
+  "moving_averages": {
+    "dma9": null,
+    "dma20": null,
+    "dma26": null,
+    "dma50": null,
+    "dma100": null,
+    "dma200": null,
+    "price_vs_9dma_pct": null,
+    "price_vs_20dma_pct": null,
+    "price_vs_26dma_pct": null,
+    "price_vs_50dma_pct": null,
+    "price_vs_100dma_pct": null,
+    "price_vs_200dma_pct": null
+  },
+  "scores": {
+    "trend_score": null,
+    "momentum_score": null,
+    "volume_score": null,
+    "risk_score": null,
+    "technical_score": null
+  },
+  "levels": {
+    "support": null,
+    "resistance": null,
+    "entry_zone": {
+      "low": null,
+      "high": null
+    },
+    "breakout_entry": {
+      "price": null,
+      "condition": ""
+    },
+    "stop_loss": null,
+    "targets": [
+      {
+        "label": "Target 1",
+        "price_low": null,
+        "price_high": null
+      },
+      {
+        "label": "Target 2",
+        "price_low": null,
+        "price_high": null
+      },
+      {
+        "label": "Target 3",
+        "price_low": null,
+        "price_high": null
+      }
+    ]
+  },
+  "performance": {
+    "mtd": null,
+    "monthly": null,
+    "qtd": null,
+    "quarterly": null,
+    "ytd": null,
+    "half_yearly": null,
+    "yearly": null
+  },
+  "analysis": {
+    "trend": {
+      "status": "",
+      "summary": ""
+    },
+    "momentum": {
+      "status": "",
+      "summary": ""
+    },
+    "volume": {
+      "status": "",
+      "summary": ""
+    },
+    "risk": {
+      "status": "",
+      "summary": ""
+    }
+  },
+  "trade_plan": {
+    "bias": "",
+    "preferred_strategy": "",
+    "confirmation_trigger": "",
+    "invalidation_trigger": "",
+    "position_sizing": ""
+  },
+  "institutional_view": {
+    "bull_case": [],
+    "bear_case": [],
+    "pm_decision": "",
+    "portfolio_fit": [],
+    "not_suitable_for": []
+  },
+  "history": []
+}

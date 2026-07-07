@@ -1,0 +1,663 @@
+{
+"source": "uploaded_market_data",
+"ticker": "TBBB US",
+"company": "BBB FOODS INC-CLASS A",
+"date": "2026-06-05",
+"signal": "HOLD",
+"classification": {
+"investability": "Investable only on confirmed breakout or controlled pullback with high-volatility sizing",
+"speculative": true,
+"overextended": "Moderately overextended short term",
+"under_accumulation": true,
+"avoidable": false
+},
+"verdict": {
+"label": "Hold / Constructive Trend With Weak Near-Term Volume Confirmation",
+"conviction": 7.4,
+"summary": "TBBB remains in a constructive institutional technical regime with price above all major moving averages and sustained positive momentum, but the latest session did not confirm the move with volume. Price is pressing back into the 39.71-40.00 supply zone after the late-May high-volume reversal, while RVOL has cooled to 0.85. The setup is investable, but not a clean chase; it requires either a decisive high-volume breakout above 40.00 or a controlled pullback that holds above the 37.40-38.00 support shelf.",
+"action": "Hold existing tactical exposure and avoid adding aggressively into 39.70-40.00 without volume expansion. New exposure is best initiated on a low-volume pullback into 38.00-38.60 or on a confirmed close above 40.00 with RVOL above 1.5."
+},
+"latest": {
+"open": 38.22,
+"high": 39.75,
+"low": 38,
+"close": 39.42,
+"price": 39.42,
+"volume": 826800,
+"avg_20d_volume": 977914.4,
+"rvol": 0.85,
+"daily_return": 0.03,
+"rsi_14d": 56.48,
+"volatility_60d": 58.48,
+"volatility_252d": 45.66,
+"atr_pct_proxy": 5.67,
+"new_20d_high": false,
+"new_52w_high": null
+},
+"moving_averages": {
+"dma9": 37.28,
+"dma20": 36.9,
+"dma26": 36.97,
+"dma50": 36.76,
+"dma100": 35.96,
+"dma200": 32.53,
+"price_vs_9dma_pct": 5.74,
+"price_vs_20dma_pct": 6.82,
+"price_vs_26dma_pct": 6.63,
+"price_vs_50dma_pct": 7.24,
+"price_vs_100dma_pct": 9.62,
+"price_vs_200dma_pct": 21.2
+},
+"scores": {
+"trend_score": 100,
+"momentum_score": 100,
+"volume_score": 40,
+"risk_score": 40,
+"technical_score": 80
+},
+"levels": {
+"support": 37.44,
+"resistance": 39.71,
+"entry_zone": {
+"low": 38,
+"high": 38.6
+},
+"breakout_entry": {
+"price": 40.05,
+"condition": "Close above 40.00 with RVOL > 1.5, positive close-to-close follow-through, and no rejection back below the 39.71 prior supply level."
+},
+"stop_loss": 36.85,
+"targets": [
+{
+"label": "Target 1",
+"price_low": 40.75,
+"price_high": 41.25
+},
+{
+"label": "Target 2",
+"price_low": 42.5,
+"price_high": 43.25
+},
+{
+"label": "Target 3",
+"price_low": 45,
+"price_high": 46
+}
+]
+},
+"performance": {
+"mtd": -0.35,
+"monthly": 5.46,
+"qtd": 12.85,
+"quarterly": 19.06,
+"ytd": 14.69,
+"half_yearly": 19.45,
+"yearly": 44.4
+},
+"analysis": {
+"trend": {
+"status": "Bullish",
+"summary": "Price is above the 9DMA, 20DMA, 26DMA, 50DMA, 100DMA and 200DMA. The moving-average stack remains institutionally constructive, with price 6.82% above the 20DMA, 7.24% above the 50DMA and 21.20% above the 200DMA. Trend strength is high, but price is now near the upper end of the recent range rather than at an asymmetric entry point."
+},
+"momentum": {
+"status": "Constructive but losing urgency",
+"summary": "RSI at 56.48 is positive and well below overbought, indicating the stock is not in classic exhaustion. Momentum recovered sharply from the 2026-05-28 RSI washout at 29.67, but the last several sessions have been choppy around resistance, which suggests continuation needs fresh confirmation above 40.00."
+},
+"volume": {
+"status": "Mixed confirmation",
+"summary": "Latest RVOL of 0.85 is below the 20D average and does not confirm an immediate breakout attempt. The late-May reversal remains important because RVOL reached 7.85 on 2026-05-29 and 2.37 on 2026-06-01, but subsequent volume contraction means current institutional sponsorship is present but not aggressively expanding."
+},
+"risk": {
+"status": "Elevated but manageable",
+"summary": "ATR proxy near 5.67% and 60D volatility near 58.48% make this a high-volatility equity. Risk is definable against the 36.85-37.44 support and moving-average cluster, but the distance from the 20DMA and 50DMA increases mean-reversion risk if the 39.71-40.00 area rejects again."
+}
+},
+"trade_plan": {
+"bias": "Bullish but tactically neutral at resistance",
+"preferred_strategy": "Prefer holding existing exposure while waiting for either a low-volume pullback into 38.00-38.60 or a confirmed breakout above 40.00. Do not chase intraday strength unless volume expands and price accepts above the 39.71-40.00 supply zone.",
+"confirmation_trigger": "Close above 40.00, RVOL > 1.5, RSI holding above 55, and no next-session close back below 39.71.",
+"invalidation_trigger": "Close below 36.85 or a failed breakout above 40.00 followed by heavy-volume rejection below 38.00.",
+"position_sizing": "Use half-size institutional swing sizing due to 5.67% ATR proxy and 58.48% 60D volatility. Increase only after multi-session acceptance above 40.00 with improving RVOL; reduce if price loses the 37.44 support shelf."
+},
+"institutional_view": {
+"bull_case": [
+"Price remains above all major moving averages",
+"Trend score is strong and moving-average structure is constructive",
+"RSI at 56.48 is constructive without overbought pressure",
+"YTD performance is positive at 14.69%",
+"Yearly performance is positive at 44.40%",
+"Late-May high-volume reversal suggests demand emerged aggressively below 34.00",
+"Pullbacks since the reversal have held above the reclaimed 20DMA and 50DMA cluster"
+],
+"bear_case": [
+"Latest RVOL of 0.85 does not confirm a breakout attempt",
+"Immediate overhead supply remains near 39.71-40.00",
+"Price is extended 6.82% above the 20DMA and 7.24% above the 50DMA",
+"ATR proxy of 5.67% and 60D volatility of 58.48% create high stop-out risk",
+"Multiple sessions have stalled near 39.75-40.00 without a decisive close-through",
+"A close below 36.85 would undermine the reclaimed moving-average structure"
+],
+"pm_decision": "TBBB is investable as a speculative, high-volatility swing long, but the current tactical rating is HOLD rather than fresh BUY. Existing exposure can be maintained while price holds above 37.44, but new capital should wait for a volume-confirmed breakout above 40.00 or a controlled pullback into the 38.00-38.60 entry zone.",
+"portfolio_fit": [
+"High-volatility momentum watchlist",
+"Tactical growth sleeve",
+"Small-to-mid position institutional alpha sleeve",
+"Swing trading candidate",
+"Eventual add-on candidate after confirmed breakout"
+],
+"not_suitable_for": [
+"Low-volatility mandate",
+"Defensive core long-only portfolio",
+"Income-oriented portfolio",
+"Full-size position without volatility budget",
+"Short-term chase at resistance without volume confirmation",
+"Mean-reversion short unless 36.85 fails on heavy volume"
+]
+},
+"history": [
+{
+"date": "2026-06-05",
+"open": 38.22,
+"high": 39.75,
+"low": 38,
+"close": 39.42,
+"volume": 826800,
+"avg_20d_volume": 977914.4,
+"rsi_14d": 56.48,
+"dma20": 36.9,
+"dma50": 36.76
+},
+{
+"date": "2026-06-04",
+"open": 39.74,
+"high": 39.75,
+"low": 37.5,
+"close": 38.2,
+"volume": 528900,
+"avg_20d_volume": 957179.4,
+"rsi_14d": 55.49,
+"dma20": 36.85,
+"dma50": 36.66
+},
+{
+"date": "2026-06-03",
+"open": 37.88,
+"high": 39.36,
+"low": 37.72,
+"close": 39.29,
+"volume": 1059300,
+"avg_20d_volume": 967839.4,
+"rsi_14d": 58.8,
+"dma20": 36.81,
+"dma50": 36.6
+},
+{
+"date": "2026-06-02",
+"open": 38.97,
+"high": 39.96,
+"low": 37.48,
+"close": 37.94,
+"volume": 1004900,
+"avg_20d_volume": 930614.4,
+"rsi_14d": 56.33,
+"dma20": 36.76,
+"dma50": 36.48
+},
+{
+"date": "2026-06-01",
+"open": 37.27,
+"high": 40,
+"low": 36.84,
+"close": 39.56,
+"volume": 2106600,
+"avg_20d_volume": 887544.4,
+"rsi_14d": 58.09,
+"dma20": 36.67,
+"dma50": 36.37
+},
+{
+"date": "2026-05-29",
+"open": 33.74,
+"high": 38,
+"low": 33.59,
+"close": 37.82,
+"volume": 6205300,
+"avg_20d_volume": 790744.4,
+"rsi_14d": 49.28,
+"dma20": 36.52,
+"dma50": 36.24
+},
+{
+"date": "2026-05-28",
+"open": 34.73,
+"high": 34.83,
+"low": 32.51,
+"close": 32.73,
+"volume": 2177000,
+"avg_20d_volume": 493194.4,
+"rsi_14d": 29.67,
+"dma20": 36.45,
+"dma50": 36.15
+},
+{
+"date": "2026-05-27",
+"open": 35.1,
+"high": 36.36,
+"low": 34.67,
+"close": 36.14,
+"volume": 548800,
+"avg_20d_volume": 396149.4,
+"rsi_14d": 44.68,
+"dma20": 36.6,
+"dma50": 36.17
+},
+{
+"date": "2026-05-26",
+"open": 36.68,
+"high": 36.68,
+"low": 34.35,
+"close": 34.39,
+"volume": 574900,
+"avg_20d_volume": 380004.4,
+"rsi_14d": 32.25,
+"dma20": 36.61,
+"dma50": 36.12
+},
+{
+"date": "2026-05-22",
+"open": 37.07,
+"high": 38.24,
+"low": 36.64,
+"close": 36.74,
+"volume": 493400,
+"avg_20d_volume": 361089.4,
+"rsi_14d": 53.01,
+"dma20": 36.7,
+"dma50": 36.1
+},
+{
+"date": "2026-05-21",
+"open": 36.69,
+"high": 37.59,
+"low": 36.69,
+"close": 37.2,
+"volume": 296000,
+"avg_20d_volume": 353405,
+"rsi_14d": 52.96,
+"dma20": 36.72,
+"dma50": 36
+},
+{
+"date": "2026-05-20",
+"open": 36.35,
+"high": 37.2,
+"low": 35.83,
+"close": 37.19,
+"volume": 247554,
+"avg_20d_volume": 367239.4,
+"rsi_14d": 53.27,
+"dma20": 36.73,
+"dma50": 35.93
+},
+{
+"date": "2026-05-19",
+"open": 36.82,
+"high": 37.56,
+"low": 36.32,
+"close": 36.32,
+"volume": 542100,
+"avg_20d_volume": 370075,
+"rsi_14d": 52.69,
+"dma20": 36.83,
+"dma50": 35.86
+},
+{
+"date": "2026-05-18",
+"open": 36.64,
+"high": 37.35,
+"low": 35.71,
+"close": 37,
+"volume": 308100,
+"avg_20d_volume": 362500,
+"rsi_14d": 53.93,
+"dma20": 36.97,
+"dma50": 35.81
+},
+{
+"date": "2026-05-15",
+"open": 35.49,
+"high": 37.28,
+"low": 35.36,
+"close": 36.56,
+"volume": 395400,
+"avg_20d_volume": 361785,
+"rsi_14d": 51.64,
+"dma20": 37.07,
+"dma50": 35.73
+},
+{
+"date": "2026-05-14",
+"open": 35.14,
+"high": 36.32,
+"low": 35.08,
+"close": 35.83,
+"volume": 223500,
+"avg_20d_volume": 358905,
+"rsi_14d": 42.86,
+"dma20": 37.15,
+"dma50": 35.66
+},
+{
+"date": "2026-05-13",
+"open": 35.54,
+"high": 35.75,
+"low": 34.65,
+"close": 35.65,
+"volume": 215300,
+"avg_20d_volume": 376665,
+"rsi_14d": 41.69,
+"dma20": 37.23,
+"dma50": 35.64
+},
+{
+"date": "2026-05-12",
+"open": 36.33,
+"high": 36.63,
+"low": 34.19,
+"close": 35.47,
+"volume": 843600,
+"avg_20d_volume": 393615,
+"rsi_14d": 34.17,
+"dma20": 37.19,
+"dma50": 35.63
+},
+{
+"date": "2026-05-11",
+"open": 38,
+"high": 38.65,
+"low": 36.23,
+"close": 36.5,
+"volume": 598000,
+"avg_20d_volume": 371260,
+"rsi_14d": 37.46,
+"dma20": 37.21,
+"dma50": 35.63
+},
+{
+"date": "2026-05-08",
+"open": 38.5,
+"high": 39.36,
+"low": 36.89,
+"close": 38.09,
+"volume": 362600,
+"avg_20d_volume": 354525,
+"rsi_14d": 45.02,
+"dma20": 37.17,
+"dma50": 35.63
+},
+{
+"date": "2026-05-07",
+"open": 38.2,
+"high": 39.34,
+"low": 36.8,
+"close": 38.43,
+"volume": 412100,
+"avg_20d_volume": 348565,
+"rsi_14d": 51.3,
+"dma20": 37.15,
+"dma50": 35.6
+},
+{
+"date": "2026-05-06",
+"open": 38.69,
+"high": 38.81,
+"low": 37.03,
+"close": 37.38,
+"volume": 742100,
+"avg_20d_volume": 348350,
+"rsi_14d": 50.11,
+"dma20": 37.11,
+"dma50": 35.57
+},
+{
+"date": "2026-05-05",
+"open": 36.49,
+"high": 38.34,
+"low": 36.49,
+"close": 38.2,
+"volume": 314800,
+"avg_20d_volume": 330645,
+"rsi_14d": 64.65,
+"dma20": 37.09,
+"dma50": 35.56
+},
+{
+"date": "2026-05-04",
+"open": 36.51,
+"high": 36.91,
+"low": 35.97,
+"close": 36.11,
+"volume": 143500,
+"avg_20d_volume": 330475,
+"rsi_14d": 51.99,
+"dma20": 37.01,
+"dma50": 35.52
+},
+{
+"date": "2026-05-01",
+"open": 36.38,
+"high": 36.79,
+"low": 36.03,
+"close": 36.58,
+"volume": 170600,
+"avg_20d_volume": 336010,
+"rsi_14d": 54.02,
+"dma20": 37.03,
+"dma50": 35.55
+},
+{
+"date": "2026-04-30",
+"open": 36.48,
+"high": 36.78,
+"low": 35.81,
+"close": 36.5,
+"volume": 254300,
+"avg_20d_volume": 365735,
+"rsi_14d": 44.78,
+"dma20": 37.02,
+"dma50": 35.58
+},
+{
+"date": "2026-04-29",
+"open": 36.05,
+"high": 36.95,
+"low": 35.68,
+"close": 35.76,
+"volume": 236100,
+"avg_20d_volume": 378635,
+"rsi_14d": 41.23,
+"dma20": 36.94,
+"dma50": 35.62
+},
+{
+"date": "2026-04-28",
+"open": 36.24,
+"high": 37.01,
+"low": 35.67,
+"close": 36.2,
+"volume": 225900,
+"avg_20d_volume": 395580,
+"rsi_14d": 45.57,
+"dma20": 36.92,
+"dma50": 35.68
+},
+{
+"date": "2026-04-27",
+"open": 37.27,
+"high": 37.38,
+"low": 36.09,
+"close": 36.24,
+"volume": 196600,
+"avg_20d_volume": 407195,
+"rsi_14d": 48.37,
+"dma20": 36.83,
+"dma50": 35.71
+},
+{
+"date": "2026-04-24",
+"open": 37.47,
+"high": 38.36,
+"low": 37.06,
+"close": 37.27,
+"volume": 339900,
+"avg_20d_volume": 414789.75,
+"rsi_14d": 53.78,
+"dma20": 36.73,
+"dma50": 35.73
+},
+{
+"date": "2026-04-23",
+"open": 39.15,
+"high": 39.2,
+"low": 37,
+"close": 37.3,
+"volume": 572500,
+"avg_20d_volume": 424566.85,
+"rsi_14d": 55.06,
+"dma20": 36.57,
+"dma50": 35.76
+},
+{
+"date": "2026-04-22",
+"open": 39.47,
+"high": 39.55,
+"low": 38.7,
+"close": 39.14,
+"volume": 304500,
+"avg_20d_volume": 432148.55,
+"rsi_14d": 72.13,
+"dma20": 36.43,
+"dma50": 35.77
+},
+{
+"date": "2026-04-21",
+"open": 39,
+"high": 39.71,
+"low": 38.87,
+"close": 39.15,
+"volume": 390600,
+"avg_20d_volume": 453001.4,
+"rsi_14d": 69.01,
+"dma20": 36.22,
+"dma50": 35.76
+},
+{
+"date": "2026-04-20",
+"open": 38.07,
+"high": 39.15,
+"low": 37.95,
+"close": 39,
+"volume": 293800,
+"avg_20d_volume": 451965.2,
+"rsi_14d": 71.51,
+"dma20": 35.94,
+"dma50": 35.76
+},
+{
+"date": "2026-04-17",
+"open": 37.3,
+"high": 38.35,
+"low": 37.08,
+"close": 38.18,
+"volume": 337800,
+"avg_20d_volume": 460529.5,
+"rsi_14d": 69.35,
+"dma20": 35.61,
+"dma50": 35.74
+},
+{
+"date": "2026-04-16",
+"open": 35.05,
+"high": 37.44,
+"low": 35.05,
+"close": 37.36,
+"volume": 578700,
+"avg_20d_volume": 471197,
+"rsi_14d": 67.85,
+"dma20": 35.34,
+"dma50": 35.74
+},
+{
+"date": "2026-04-15",
+"open": 35.66,
+"high": 36.12,
+"low": 34.98,
+"close": 35,
+"volume": 554407,
+"avg_20d_volume": 475152.45,
+"rsi_14d": 52.67,
+"dma20": 35.14,
+"dma50": 35.75
+},
+{
+"date": "2026-04-14",
+"open": 35.81,
+"high": 36.16,
+"low": 35.45,
+"close": 35.73,
+"volume": 396500,
+"avg_20d_volume": 487660.55,
+"rsi_14d": 55.72,
+"dma20": 35.09,
+"dma50": 35.77
+},
+{
+"date": "2026-04-13",
+"open": 37.23,
+"high": 37.65,
+"low": 35.82,
+"close": 35.84,
+"volume": 263300,
+"avg_20d_volume": 500180.2,
+"rsi_14d": 63.15,
+"dma20": 34.98,
+"dma50": 35.76
+},
+{
+"date": "2026-04-10",
+"open": 37.66,
+"high": 37.7,
+"low": 37.2,
+"close": 37.64,
+"volume": 243400,
+"avg_20d_volume": 548106.55,
+"rsi_14d": 82.55,
+"dma20": 34.84,
+"dma50": 35.74
+},
+{
+"date": "2026-04-09",
+"open": 37.14,
+"high": 37.74,
+"low": 36.86,
+"close": 37.56,
+"volume": 407800,
+"avg_20d_volume": 658074.65,
+"rsi_14d": 79.04,
+"dma20": 34.55,
+"dma50": 35.66
+},
+{
+"date": "2026-04-08",
+"open": 37.25,
+"high": 37.74,
+"low": 36.64,
+"close": 37.11,
+"volume": 388000,
+"avg_20d_volume": 663595.95,
+"rsi_14d": 72.55,
+"dma20": 34.37,
+"dma50": 35.59
+}
+]
+}

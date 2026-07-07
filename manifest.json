@@ -1,0 +1,30 @@
+{
+  "project": "midas_daily_technical_ai_summary",
+  "timezone": "Asia/Kolkata",
+  "technical_api": {
+    "base_url": "http://midastest.goldenhillsindia.com/",
+    "endpoint_template": "/api/technical-indicators/{ticker}/?include_history=true&limit=60",
+    "method": "GET",
+    "auth_type": "bearer"
+  },
+  "input": {
+    "combined_file": "input/technical_data_latest.json",
+    "ticker_file_folder": "input/ticker_files"
+  },
+  "output": {
+    "combined_file": "output/ticker_ai_summary_latest.json",
+    "ticker_file_folder": "output/ticker_files"
+  },
+  "prompt_file": "prompts/technical_summary_prompt.md",
+  "tickers": [
+    "GOOGL US",
+    "LEGN US",
+    "MLTX US",
+    "PTRN US",
+    "QURE US",
+    "SLDB US",
+    "TNGX US",
+    "TSHA US",
+    "SYRE US"
+  ]
+}

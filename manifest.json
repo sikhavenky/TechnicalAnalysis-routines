@@ -3,18 +3,10 @@
   "timezone": "Asia/Kolkata",
   "note": "Reference config for the backend technical-data pipeline (source of input/technicals_input.json). The Claude Code Routine itself does not read this file - it follows routine_instruction.md directly.",
   "technical_api": {
-    "base_url": "https://midasback.goldenhillsindia.com/",
-    "endpoint_template": "/api/quant_agent/all_tickers_latest/",
-    "method": "POST",
-    "request_body_template": {
-      "ticker": "{ticker}",
-      "deal_type": "{deal_type}"
-    },
-    "auth_type": "bearer",
-    "response_path": "data.quant_analysis",
-    "response_path_note": "quant_analysis is returned as a JSON-encoded STRING, not a nested object - must be JSON.parse()'d before use.",
-    "extraction_note": "Only carry ticker, company, date, latest, moving_averages, performance, and history from the parsed quant_analysis into input/technicals_input.json. Drop signal, classification, verdict, scores, levels, analysis, trade_plan, and institutional_view - those are the PREVIOUS run's AI-generated conclusions and must not be fed back in as if they were fresh input.",
-    "deal_type_note": "deal_type is required per ticker and is NOT uniformly 'IPO' - confirmed values below; TODO_CONFIRM entries still need a real value from the backend/deals team before this ticker can be fetched."
+    "base_url": "http://midastest.goldenhillsindia.com/",
+    "endpoint_template": "/api/technical-indicators/{ticker}/?include_history=true&limit=60",
+    "method": "GET",
+    "auth_type": "bearer"
   },
   "input": {
     "combined_file": "input/technicals_input.json",
@@ -26,14 +18,14 @@
   },
   "prompt_file": "routine_instruction.md",
   "tickers": [
-    { "ticker": "GOOGL US", "deal_type": "TODO_CONFIRM" },
-    { "ticker": "LEGN US", "deal_type": "TODO_CONFIRM" },
-    { "ticker": "MLTX US", "deal_type": "TODO_CONFIRM" },
-    { "ticker": "PTRN US", "deal_type": "TODO_CONFIRM" },
-    { "ticker": "QURE US", "deal_type": "TODO_CONFIRM" },
-    { "ticker": "SLDB US", "deal_type": "TODO_CONFIRM" },
-    { "ticker": "TNGX US", "deal_type": "TODO_CONFIRM" },
-    { "ticker": "TSHA US", "deal_type": "FO" },
-    { "ticker": "SYRE US", "deal_type": "TODO_CONFIRM" }
+    "GOOGL US",
+    "LEGN US",
+    "MLTX US",
+    "PTRN US",
+    "QURE US",
+    "SLDB US",
+    "TNGX US",
+    "TSHA US",
+    "SYRE US"
   ]
 }

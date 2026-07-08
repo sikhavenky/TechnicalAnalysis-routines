@@ -1,6 +1,7 @@
 {
   "project": "midas_daily_technical_ai_summary",
   "timezone": "Asia/Kolkata",
+  "note": "Reference config for the backend technical-data pipeline (source of input/technicals_input.json). The Claude Code Routine itself does not read this file - it follows routine_instruction.md directly.",
   "technical_api": {
     "base_url": "http://midastest.goldenhillsindia.com/",
     "endpoint_template": "/api/technical-indicators/{ticker}/?include_history=true&limit=60",
@@ -8,14 +9,14 @@
     "auth_type": "bearer"
   },
   "input": {
-    "combined_file": "input/technical_data_latest.json",
-    "ticker_file_folder": "input/ticker_files"
+    "combined_file": "input/technicals_input.json",
+    "schema_file": "schemas/technical_input_schema.json"
   },
   "output": {
-    "combined_file": "output/ticker_ai_summary_latest.json",
-    "ticker_file_folder": "output/ticker_files"
+    "combined_file": "output/technicals_summary.json",
+    "schema_file": "schemas/technical_summary_schema.json"
   },
-  "prompt_file": "prompts/technical_summary_prompt.md",
+  "prompt_file": "routine_instruction.md",
   "tickers": [
     "GOOGL US",
     "LEGN US",

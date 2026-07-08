@@ -1,0 +1,65 @@
+{
+  "run_date": "",
+  "source": "technical_indicator_pipeline",
+  "tickers": [
+    {
+      "ticker": "",
+      "company": "",
+      "date": "",
+      "latest": {
+        "open": null,
+        "high": null,
+        "low": null,
+        "close": null,
+        "price": null,
+        "volume": null,
+        "avg_20d_volume": null,
+        "rvol": null,
+        "daily_return": null,
+        "rsi_14d": null,
+        "volatility_60d": null,
+        "volatility_252d": null,
+        "atr_pct_proxy": null,
+        "new_20d_high": null,
+        "new_52w_high": null
+      },
+      "moving_averages": {
+        "dma9": null,
+        "dma20": null,
+        "dma26": null,
+        "dma50": null,
+        "dma100": null,
+        "dma200": null,
+        "price_vs_9dma_pct": null,
+        "price_vs_20dma_pct": null,
+        "price_vs_26dma_pct": null,
+        "price_vs_50dma_pct": null,
+        "price_vs_100dma_pct": null,
+        "price_vs_200dma_pct": null
+      },
+      "performance": {
+        "mtd": null,
+        "monthly": null,
+        "qtd": null,
+        "quarterly": null,
+        "ytd": null,
+        "half_yearly": null,
+        "yearly": null
+      },
+      "history": [
+        {
+          "date": "",
+          "open": null,
+          "high": null,
+          "low": null,
+          "close": null,
+          "volume": null,
+          "avg_20d_volume": null,
+          "rsi_14d": null,
+          "dma20": null,
+          "dma50": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,60 +1,56 @@
 # Technical Analysis Claude Routine
 
-This repo is used by a Claude Code Routine (https://code.claude.com/docs/en/routines) to
-generate institutional technical-analysis JSON summaries on a daily schedule, replacing the
-previously manual "paste technicals + prompt into Claude" workflow.
+This repo backs a Claude Code Routine (https://code.claude.com/docs/en/routines) that
+generates institutional technical-analysis JSON summaries, replacing the previously
+manual "paste technicals + prompt into Claude" workflow.
 
 ## Workflow
 
-1. Backend technical pipeline computes the day's technical data and pushes it directly to
-   the `main` branch as:
+There is no file-based handoff. On each run, the routine itself:
 
-   input/technicals_input.json
+1. Is triggered via its API trigger (the backend hits the routine's `/fire` endpoint
+   with its permanent bearer token whenever a run should happen).
+2. For each ticker in `manifest.json`'s `tickers` list (or specific tickers named in
+   the triggering request), calls the technicals-data API to fetch that ticker's
+   latest data — see `technical_api` in `manifest.json` and Step 1 of
+   `routine_instruction.md`.
+3. Generates one institutional-grade technical-analysis summary per ticker, in the
+   shape defined in `schemas/technical_summary_schema.json`.
+4. Uploads each generated summary via the upload API — **not yet configured**, see
+   `upload_api` in `manifest.json` and Step 4 of `routine_instruction.md`.
 
-   (shape defined in schemas/technical_input_schema.json)
-
-2. A Claude Code Routine fires on a fixed daily schedule (configured at
-   claude.ai/code/routines, not in this repo), clones this repo fresh, and reads the input
-   file per routine_instruction.md.
-
-3. The routine checks that input/technicals_input.json's run_date is today's date before
-   doing anything else. If the backend hasn't pushed fresh data yet, the routine skips the
-   run without touching output/technicals_summary.json.
-
-4. Claude generates one structured technical summary per ticker and writes it to:
-
-   output/technicals_summary.json
-
-   (shape defined in schemas/technical_summary_schema.json)
-
-5. The routine commits and pushes output/technicals_summary.json directly to `main`
-   (requires "Allow unrestricted branch pushes" enabled for this repo in the routine's
-   Permissions settings — by default Claude Code Routines can only push to `claude/`-
-   prefixed branches).
-
-6. Backend reads the output JSON from `main` and stores it in the database.
+The routine reads and writes nothing in this repository at run time. This repo only
+holds its prompt (`routine_instruction.md`), config (`manifest.json`), and reference
+schema/example for the output shape.
 
 ## Important
 
-Do not call Claude API from the backend.
-Do not call Anthropic SDK.
-Claude Code Routine itself performs the AI analysis - no API integration needed.
-The routine does not call any external APIs itself; it only ever reads the input file
-already committed to the repo.
+Do not call Claude API from the backend. Do not call the Anthropic SDK. The Claude
+Code Routine itself performs the AI analysis — it calls the technicals-data and
+upload APIs directly using a bearer token read from an environment variable, never
+from a file committed to this repo.
 
-## Input
+## Required routine configuration (set in the routine's edit dialog, not in this repo)
 
-input/technicals_input.json — schema: schemas/technical_input_schema.json
+- **Trigger**: an API trigger (not a fixed schedule) — the backend fires a run whenever
+  it wants one.
+- **Environment variable**: `MIDAS_API_TOKEN` set to the permanent bearer token, added
+  under the routine's cloud Environment settings.
+- **Network access**: the environment's network access must be set to Custom with
+  `midasback.goldenhillsindia.com` (and the upload API's host, once known) allowlisted —
+  the Default/Trusted environment blocks arbitrary external hosts.
 
-## Output
+## Prompt
 
-output/technicals_summary.json — schema: schemas/technical_summary_schema.json
-
-## Routine prompt
-
-routine_instruction.md — this is what the Claude Code Routine follows on every run.
+`routine_instruction.md` — this is what the Claude Code Routine follows on every run.
 
 ## Config reference
 
-manifest.json — reference config for the backend pipeline (ticker list, upstream API,
-timezone). Not read by the routine itself.
+`manifest.json` — ticker list, technicals-data API config, upload API config (pending).
+Not read by the routine itself; it's a reference the prompt's values are kept in sync
+with.
+
+## Output shape reference
+
+`schemas/technical_summary_schema.json` and `examples/example_output.json` — the exact
+shape and style of the summary the routine generates per ticker.

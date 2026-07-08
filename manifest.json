@@ -1,22 +1,24 @@
 {
   "project": "midas_daily_technical_ai_summary",
   "timezone": "Asia/Kolkata",
-  "note": "Reference config for the backend technical-data pipeline (source of input/technicals_input.json). The Claude Code Routine itself does not read this file - it follows routine_instruction.md directly.",
+  "note": "This routine calls both APIs directly at run time - there is no file-based handoff in this repo. See routine_instruction.md for the exact flow.",
   "technical_api": {
-    "base_url": "http://midastest.goldenhillsindia.com/",
-    "endpoint_template": "/api/technical-indicators/{ticker}/?include_history=true&limit=60",
-    "method": "GET",
-    "auth_type": "bearer"
+    "base_url": "https://midasback.goldenhillsindia.com/",
+    "endpoint": "/api/technical_indicators/get_by_ticker/",
+    "method": "POST",
+    "request_body_template": {
+      "ticker": "{ticker}",
+      "limit": 60
+    },
+    "auth_type": "bearer",
+    "auth_env_var": "MIDAS_API_TOKEN"
   },
-  "input": {
-    "combined_file": "input/technicals_input.json",
-    "schema_file": "schemas/technical_input_schema.json"
-  },
-  "output": {
-    "combined_file": "output/technicals_summary.json",
-    "schema_file": "schemas/technical_summary_schema.json"
+  "upload_api": {
+    "status": "TODO_CONFIRM",
+    "note": "Awaiting URL, method, auth, and payload shape before routine_instruction.md's upload step can be finalized."
   },
   "prompt_file": "routine_instruction.md",
+  "summary_schema_file": "schemas/technical_summary_schema.json",
   "tickers": [
     "GOOGL US",
     "LEGN US",

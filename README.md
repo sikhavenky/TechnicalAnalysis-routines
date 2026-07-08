@@ -16,8 +16,11 @@ There is no file-based handoff. On each run, the routine itself:
    `routine_instruction.md`.
 3. Generates one institutional-grade technical-analysis summary per ticker, in the
    shape defined in `schemas/technical_summary_schema.json`.
-4. Uploads each generated summary via the upload API — **not yet configured**, see
-   `upload_api` in `manifest.json` and Step 4 of `routine_instruction.md`.
+4. Uploads each generated summary via the upload API as soon as it's generated — see
+   `upload_api` in `manifest.json` and Step 4 of `routine_instruction.md`. Known gap:
+   this endpoint also accepts deal-level fields (`deal_type`, `region`, `sector`,
+   `pricing_date`, `unique_deal_id`, `issuer_name`) that get blanked on today's record
+   if omitted, and the routine has no source for them, so it intentionally omits them.
 
 The routine reads and writes nothing in this repository at run time. This repo only
 holds its prompt (`routine_instruction.md`), config (`manifest.json`), and reference
@@ -37,8 +40,8 @@ from a file committed to this repo.
 - **Environment variable**: `MIDAS_API_TOKEN` set to the permanent bearer token, added
   under the routine's cloud Environment settings.
 - **Network access**: the environment's network access must be set to Custom with
-  `midasback.goldenhillsindia.com` (and the upload API's host, once known) allowlisted —
-  the Default/Trusted environment blocks arbitrary external hosts.
+  `midasback.goldenhillsindia.com` allowlisted (both the fetch and upload APIs are on
+  this same host) — the Default/Trusted environment blocks arbitrary external hosts.
 
 ## Prompt
 
@@ -46,9 +49,8 @@ from a file committed to this repo.
 
 ## Config reference
 
-`manifest.json` — ticker list, technicals-data API config, upload API config (pending).
-Not read by the routine itself; it's a reference the prompt's values are kept in sync
-with.
+`manifest.json` — ticker list, technicals-data API config, upload API config. Not read
+by the routine itself; it's a reference the prompt's values are kept in sync with.
 
 ## Output shape reference
 

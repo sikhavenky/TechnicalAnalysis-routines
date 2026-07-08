@@ -94,13 +94,38 @@ Important rules:
 
 ## Step 4: Upload the summary
 
-**Pending.** The upload endpoint's URL, method, auth, and expected payload shape have
-not been provided yet. Until this section is filled in with real values, do not invent
-an upload call — stop after generating each ticker's summary and hold it for review
-rather than guessing where to send it.
+As soon as a ticker's summary is generated, upload it immediately (do not wait until
+all tickers are done):
+
+```
+POST https://midasback.goldenhillsindia.com/api/quant_agent/upload/
+Authorization: Bearer $MIDAS_API_TOKEN
+Content-Type: application/json
+
+{
+  "ticker": "<ticker>",
+  "quant_signal": "<the ticker's signal field>",
+  "quant_analysis": "<the full generated summary object, JSON-stringified>"
+}
+```
+
+- `quant_analysis` must be sent as a **JSON-encoded string** (call your JSON-stringify
+  step on the summary object before putting it in this field) — not a nested JSON
+  object. Existing records store it this way; sending a nested object instead of a
+  string will break that convention.
+- Do not send `run_date` — the server stamps it automatically as today's date.
+- The server upserts by `(ticker, run_date=today)`, so re-uploading the same ticker on
+  the same day updates the existing record rather than creating a duplicate. This is
+  safe to rely on if a run is retried.
+- Do not send `deal_type`, `region`, `sector`, `pricing_date`, `unique_deal_id`, or
+  `issuer_name` — this routine has no source for them (the fetch endpoint in Step 1
+  does not return them), so leave them out of the request entirely rather than
+  guessing or sending blanks.
+- If the upload call fails (non-2xx response) for a ticker, note why and continue with
+  the remaining tickers. Do not abort the whole run because one ticker's upload failed.
 
 ## Do not
 
 - Do not read or write any files in this repository.
 - Do not commit or push anything.
-- Do not call any API other than the ones explicitly listed in this document.
+- Do not call any API other than the two listed in this document.

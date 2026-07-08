@@ -14,8 +14,18 @@
     "auth_env_var": "MIDAS_API_TOKEN"
   },
   "upload_api": {
-    "status": "TODO_CONFIRM",
-    "note": "Awaiting URL, method, auth, and payload shape before routine_instruction.md's upload step can be finalized."
+    "base_url": "https://midasback.goldenhillsindia.com/",
+    "endpoint": "/api/quant_agent/upload/",
+    "method": "POST",
+    "request_body_template": {
+      "ticker": "{ticker}",
+      "quant_signal": "{signal}",
+      "quant_analysis": "{summary_json_as_string}"
+    },
+    "auth_type": "bearer",
+    "auth_env_var": "MIDAS_API_TOKEN",
+    "note": "quant_analysis must be a JSON-encoded STRING (not a nested object), matching how existing records store it. Do not send run_date - the server stamps it as today's date server-side. Server upserts by (ticker, run_date=today), so re-uploads same-day update the existing record instead of duplicating.",
+    "known_gap": "This endpoint also accepts deal_type/region/sector/pricing_date/unique_deal_id/issuer_name and blanks them on today's record if omitted (update_or_create writes every key in defaults regardless). The technical_api fetch above does not return any of these fields, so the routine has no source for them and intentionally omits them. If anything downstream filters/displays on those fields, today's uploaded record will not have them populated."
   },
   "prompt_file": "routine_instruction.md",
   "summary_schema_file": "schemas/technical_summary_schema.json",

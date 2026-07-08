@@ -56,5 +56,12 @@ routine_instruction.md — this is what the Claude Code Routine follows on every
 
 ## Config reference
 
-manifest.json — reference config for the backend pipeline (ticker list, upstream API,
-timezone). Not read by the routine itself.
+manifest.json — reference config for the backend pipeline (ticker list, deal_type per
+ticker, upstream API, timezone). Not read by the routine itself.
+
+## Backend integration contract
+
+BACKEND_INTEGRATION.md — the exact steps the backend cron job must follow to fetch data
+from the quant_agent API and write input/technicals_input.json correctly, including the
+required field-stripping rule (the API returns full previous analysis records, not raw
+data, so most of each response must be discarded before it becomes input).

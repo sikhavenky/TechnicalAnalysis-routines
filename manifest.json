@@ -1,22 +1,34 @@
 {
   "project": "midas_daily_technical_ai_summary",
   "timezone": "Asia/Kolkata",
-  "note": "Reference config for the backend technical-data pipeline (source of input/technicals_input.json). The Claude Code Routine itself does not read this file - it follows routine_instruction.md directly.",
+  "note": "This routine calls both APIs directly at run time - there is no file-based handoff in this repo. See routine_instruction.md for the exact flow.",
   "technical_api": {
-    "base_url": "http://midastest.goldenhillsindia.com/",
-    "endpoint_template": "/api/technical-indicators/{ticker}/?include_history=true&limit=60",
-    "method": "GET",
-    "auth_type": "bearer"
+    "base_url": "https://midasback.goldenhillsindia.com/",
+    "endpoint": "/api/technical_indicators/get_by_ticker/",
+    "method": "POST",
+    "request_body_template": {
+      "ticker": "{ticker}",
+      "limit": 60
+    },
+    "auth_type": "bearer",
+    "auth_env_var": "MIDAS_API_TOKEN"
   },
-  "input": {
-    "combined_file": "input/technicals_input.json",
-    "schema_file": "schemas/technical_input_schema.json"
-  },
-  "output": {
-    "combined_file": "output/technicals_summary.json",
-    "schema_file": "schemas/technical_summary_schema.json"
+  "upload_api": {
+    "base_url": "https://midasback.goldenhillsindia.com/",
+    "endpoint": "/api/quant_agent/upload/",
+    "method": "POST",
+    "request_body_template": {
+      "ticker": "{ticker}",
+      "quant_signal": "{signal}",
+      "quant_analysis": "{summary_json_as_string}"
+    },
+    "auth_type": "bearer",
+    "auth_env_var": "MIDAS_API_TOKEN",
+    "note": "quant_analysis must be a JSON-encoded STRING (not a nested object), matching how existing records store it. Do not send run_date - the server stamps it as today's date server-side. Server upserts by (ticker, run_date=today), so re-uploads same-day update the existing record instead of duplicating.",
+    "known_gap": "This endpoint also accepts deal_type/region/sector/pricing_date/unique_deal_id/issuer_name and blanks them on today's record if omitted (update_or_create writes every key in defaults regardless). The technical_api fetch above does not return any of these fields, so the routine has no source for them and intentionally omits them. If anything downstream filters/displays on those fields, today's uploaded record will not have them populated."
   },
   "prompt_file": "routine_instruction.md",
+  "summary_schema_file": "schemas/technical_summary_schema.json",
   "tickers": [
     "GOOGL US",
     "LEGN US",
